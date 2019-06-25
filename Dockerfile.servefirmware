@@ -1,0 +1,8 @@
+FROM upybuild
+
+ADD scripts/randomserve.sh .
+
+ADD scripts/timekiller.sh .
+
+#  Change the number for the length of time you want the server to run
+CMD [ "./timekiller.sh", "./randomserve.sh" ]

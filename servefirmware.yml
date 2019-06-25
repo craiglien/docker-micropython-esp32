@@ -1,0 +1,14 @@
+## Run this with Docker Compse
+
+version: "3.7"
+
+services:
+  serve:
+    environment:
+      - OUTIP
+      - SERVETIME
+    ports:
+      - "8000:8000"
+    build:
+      context: .
+      dockerfile: Dockerfile.servefirmware

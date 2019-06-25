@@ -44,20 +44,4 @@ RUN cd esp && mkdir xtensa-esp32-elf\
 
 ENV PATH=/esp/xtensa-esp32-elf/xtensa-esp32-elf/bin:$PATH
 
-USER root
-
-ADD modules/picoweb /micropython/ports/esp32/modules/picoweb
-ADD modules/pkg_resources.py /micropython/ports/esp32/modules/
-
-ADD modules/uasyncio /micropython/ports/esp32/modules/uasyncio
-ADD modules/uio.py /micropython/ports/esp32/modules/
-ADD modules/ulogging.py /micropython/ports/esp32/modules/
-
-ADD main.c /micropython/ports/esp32/main.c
-
-# show modules
-RUN ls -al /micropython/ports/esp32/m*
-
-RUN cd /micropython/ports/esp32 && make
-RUN ls -al /micropython/ports/esp32/b*/*.bin
 

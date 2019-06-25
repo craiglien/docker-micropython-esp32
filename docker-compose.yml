@@ -1,0 +1,15 @@
+version: "3.7"
+
+services:
+  espbuild:
+    image: espbuild
+    build:
+      context: .
+      dockerfile: Dockerfile.espbuild
+  upybuid:
+    depends_on:
+      - espbuild
+    image: upybuild
+    build:
+      context: .      
+      dockerfile: Dockerfile.uPybuild
